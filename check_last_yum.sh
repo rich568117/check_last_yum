@@ -1,3 +1,4 @@
+#!/bin/bash
 yum history|grep update  > /tmp/lastupdate
 awk 'BEGIN{FS="|";OFS=","}{$1=$1; print}' /tmp/lastupdate > /tmp/lastupdate.csv
 awk -F "\"*,\"*" '{print $3}' /tmp/lastupdate.csv > /tmp/lastyum.log
