@@ -8,14 +8,14 @@ datum2=`date "+%s"`
 diff=$(($datum2-$datum1))
 
 days=$(($diff/(60*60*24)))
-echo $days
-if [ $days == 0 ]; then
+
+if [[ $days == 0 ]]; then
         echo "OK - Last update was run less than 30 days ago"
         exit 0
-        elif [ $days -gt 30 ]; then
+        elif [[ $days -gt 30 ]]; then
                 echo "CRITICAL - Over 30 days since last update!"
                 exit 2
-        elif [ $days -lt 30 ]; then
+        elif [[ $days -lt 30 ]]; then
                 echo "OK - Last update was run less than 30 days ago"
                 exit 0
         else
